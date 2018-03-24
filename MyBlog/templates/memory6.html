@@ -1,0 +1,35 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>详情</title>
+	<link type="text/css"  rel="stylesheet" href= "{% static "part-1.css" %}">
+
+</head>
+
+<body>
+<!-- 导航栏及页首-->
+	<div class="header">
+		<h1> 《{{ a.title }}》 的详情</h1>
+	</div>
+	<div class="bg" >
+		<div class="container">
+			<img class="pic1" src={% static "images/2.jpg"%} />
+			<img class="pic2" src={% static "images/3.jpg"%} />
+			<img src={% static "images/4.jpg" %} class="pic3" />
+			<ul class="list">
+                      时间：{{a.pub_date}}<br>
+                      标题:{{ a.title }}
+                   <p>内容：{{a.diary_txt}}</p>
+
+			</ul>
+    	</div>
+
+
+
+	</div>
+</div>
+</body>
+</html>

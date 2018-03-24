@@ -1,0 +1,185 @@
+
+.we{
+	position:absolute;
+	right:80px;
+}
+.we:hover{
+	font-size:1.5em;
+}
+@font-face
+{
+font-family: myFirstFont;
+src: url("images/haha.ttf");
+ }
+h1{
+	font-family:myFirstFont;
+	font-size: 6em;
+	letter-spacing:30px;
+}
+
+	
+.text {
+	  width: 47%;
+	  padding: 1em 2em 1em 3em;
+	  color: #9199aa;
+	  font-size: 18px;
+	  outline: none;
+	  border: none;
+	  font-weight: 100;
+	  border-bottom: 1px solid#484856;
+	  margin-top: 0em;
+	  border-top-left-radius:15px;
+      border-top-right-radius:15px;
+	  }
+#tag{
+	position:relative;
+	bottom:2em;
+	border-top:1px solid;
+	height:2em;
+	border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px;
+}
+.password{
+	  width: 47%;
+	  padding: 1em 2em 1em 3em;
+	  color: #dd3e3e;
+	  font-size: 18px;
+	  font-weight: 100;
+	  border-bottom: 1px solid#484856;
+	  margin-bottom: 1em;
+	  outline: none;
+	  border: none;
+	  border-bottom-left-radius:15px;
+      border-bottom-right-radius:15px;
+ }
+ .tag{
+	 width: 47%;
+	  padding: 1em 2em 1em 3em;
+	  color: #9199aa;
+	  font-size: 18px;
+	  outline: none;
+	  border: none;
+	  font-weight: 100;
+	  border-bottom: 1px solid#484856;
+	  margin-top: 2em;
+	  border-top-left-radius:15px;
+      border-top-right-radius:15px;
+ }
+input[type="submit"]{
+  font-size: 30px;
+  color:#C4E1FF;
+  outline: none;
+  border: none;
+  background: #AE00AE;
+  width: 100%;
+  padding: 11px 0;
+  border-bottom-left-radius:15px;
+  border-bottom-right-radius:15px;
+ margin-top:0em;
+
+}
+input[type="submit"]:hover {
+  font-size: 30px;
+  color:#4DFFFF;
+  outline: none;
+  border: none;
+  background: #FF359A;
+  width: 100%;
+  padding: 11px 0;
+  border-bottom-left-radius:15px;
+  border-bottom-right-radius:15px;
+ 
+   
+}
+.user img {
+  margin: 2em;
+  padding-bottom:0em;
+  position:relative;
+  left:10%;
+}
+.file {
+    position: relative;
+	right:16%;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+body{
+	
+		background: url("images/memory3.jpg") no-repeat 0px 0px;
+	font-family: 'Open Sans', sans-serif;
+	background-size:cover;
+	min-height:800px;
+	
+}
+.wrap{
+	margin: 0 auto;
+	width: 80%;
+}
+.head {
+  padding: 3px 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  color:#AE00AE;
+  background: #00E3E3;
+  height: 50px;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}/*shangmian*/
+
+.form {
+	background: #CAFFFF;
+	position: relative;
+	top:-3em;
+	width: 30%;
+	margin: 1% auto 0 auto;
+	text-align: center;
+	border-radius: 15px;
+	opacity: 0.9;
+}
+.regist{
+  font-size: 30px;
+  color:#C4E1FF;
+  outline: none;
+  border: none;
+  background:#930093;
+  width: 100%;
+  padding: 2px 0;
+  border-bottom-left-radius:20px;
+  border-bottom-right-radius:20px;
+}
+.regist:hover{
+	font-size: 30px;
+  color:#C4E1FF;
+  outline: none;
+  border: none;
+  background: #FF359A;
+  width: 100%;
+  padding: 2px 0;
+  border-bottom-left-radius:20px;
+  border-bottom-right-radius:20px;
+}
+
+

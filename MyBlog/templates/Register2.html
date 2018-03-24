@@ -1,0 +1,52 @@
+    1   <!doctype html>
+<html>
+{% load staticfiles %}
+<head>
+<meta charset="UTF-8">
+<title>注册</title>
+<link href="{% static 'Register.css' %}" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+    <div class="error">用户名已被注册</div>
+	<div class="<container">
+		<div class="background">
+            <div class="touxiang" >选择头像</div>
+			<form  class="infor" method="post" enctype="multipart/form-data">
+				<img src={% static "images2/username1.png" %} height="80" width="80" class="portrait">
+
+                    <input type="file" value="我的头像" name="touxiang" id="touxiang" style="opacity: 0;"/>
+
+				<img src={%  static "images2/username.png"%} alt="" class="img">
+				<input type="text"  name="username" id="a" value="username" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'username';}">
+				<img src={% static "images2/password.png" %} alt="" id="img" class="img">
+				<input type="password" name="password"  id= "b" value="11111" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '11111';}">
+				<img src={% static "images2/about.png" %} alt="" class="img" >
+				<input type="text" id="c" name="cha" class="about-text" value="sign" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'sign';}">
+				<script>
+
+            		function myFunction()
+           			{
+            			var x=document.getElementById("a").value;
+						var y=document.getElementById("b").value;
+						var z=document.getElementById("c").value;
+
+    		        	if(x==""||y==""||z=="")
+	       				{
+	        				alert("Please complete your information");
+	         			}
+            		}
+             	</script>
+
+        		<button type="submit" onclick="myFunction()" class="btn1">	注册
+        		</button>
+            </form>
+		 		<a class="btn2" href="http://127.0.0.1:8000/online/">
+                   我已注册
+				</a>
+
+
+		</div>
+	</div>
+</body>

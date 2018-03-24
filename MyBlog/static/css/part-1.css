@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* 消除边距 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+position:absolute; 
+top:0; 
+left:0; 
+height:100%; 
+width:100%; 
+background-image:url( ../images2/large-bg.jpg);
+background-position: center 0; 
+background-repeat: no-repeat; 
+background-attachment:fixed; 
+background-size: cover; 
+-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+-o-background-size: cover;/* 兼容Opera */ 
+zoom: 1; 
+}
+
+
+
+
+p {
+	letter-spacing: 1px;
+	position: relative;
+	top:10%;
+	margin-left: 10%;
+	font-size: 25px;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	color: aliceblue;
+}
+
+.left {
+	margin: 90px 80px 0 180px;
+	
+}
+
+
+
+.right{
+    width: 70%; 
+    height: 100%;
+    overflow: hidden; 
+    margin: 100px auto; 
+    position: relative;
+}
+img{ 
+	  margin-top: 30%;
+    z-index: 1;
+    width: 24%;
+    height: auto;
+    position: absolute;
+    padding: 10px 10px 15px 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    /* 动画的时间 */
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+ }
+
+img:hover{
+    z-index: 2;
+    transform: scale(1.5);
+    -moz-transform: scale(1.5) ;
+    -webkit-transform: scale(1.5) ;
+    box-shadow: -10px 10px 20px #000000;
+    -moz-box-shadow: -10px 10px 20px #000000;
+    -webkit-box-shadow: -10px 10px 20px #000000;
+}
+.pic1{
+    left: 40px;
+    top: 50px;
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.pic2{
+    left: 380px;
+    top: 160px;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+	
+	.pic3{
+    left: 640px;
+    top: 240px;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+		transform: rotate(-40deg);
+}
+
+  .pic4{
+    left: 980px;
+    top: 10px;
+    -webkit-transform: rotate(-32deg);
+    -moz-transform: rotate(-32deg);
+    transform: rotate(-32deg);
+}
+
+ .pic5{
+    left: 1180px;
+    top: -190px;
+    -webkit-transform: rotate(42deg);
+    -moz-transform: rotate(42deg);
+    transform: rotate(42deg);
+}
+
+.pic6{
+    left: 1380px;
+    top: -420px;
+    -webkit-transform: rotate(22deg);
+    -moz-transform: rotate(22deg);
+    transform: rotate(22deg);
+}

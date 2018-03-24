@@ -1,0 +1,15 @@
+<!DOCTYPE>
+<html>
+<title>
+    showing my photo
+</title>
+<body>
+{% for a in latest_img_list %}
+{{a.pub_date}}
+<img src="http://127.0.0.1:8000/online/media/{{ a.img }}"/>
+    <br>
+    <br>
+    <br>
+{% endfor %}
+</body>
+</html>

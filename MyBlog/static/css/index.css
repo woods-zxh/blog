@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+position:absolute; 
+top:0; 
+left:0; 
+height:100%; 
+width:100%; 
+background-image:url(../images2/1.jpg);
+background-position: center 0; 
+background-repeat: no-repeat; 
+background-attachment:fixed; 
+background-size: cover; 
+-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+-o-background-size: cover;/* 兼容Opera */ 
+zoom: 1; 
+	opacity: 0.8;
+
+}
+
+.container-fluid {
+	
+	margin-top: 32%;
+}
+
+.title {
+	color: aliceblue;
+	letter-spacing: 8px;
+	text-align: center;
+	font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+	font-size: 50px;
+	font-weight: bolder;
+}
+
+.text {
+	color: white;
+	letter-spacing: 2px;
+	margin-top: 2px;
+	text-align: center;
+	font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+	font-size: 16px;
+}
+
+.btn {
+	color: white;
+	letter-spacing: 6px;
+	margin-top: 80px;
+	text-decoration: none;
+	background-color: inherit;
+    width: 300px;
+	height: 120px;
+	font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+	font-size: 24px;
+	border: solid #FFFFFF 1px;
+	border-radius: 20px;
+	font-weight: bold;
+}
+
+.btn:hover {
+	border-radius: 20px;
+	transition: 0.4s;
+	border: solid #7CECFF 2px;
+}
+
+a {
+	text-decoration: none;
+	color:aliceblue;
+}

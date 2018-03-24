@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta  name="viewport" content="width=device-width, initial-scale=1,text/html" charset='utf-8' http-equiv="Content-Type">
+	<title>你滴博客</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'record.css' %}">
+	<!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">-->
+	<style type="text/css">
+		body{
+			background-image: url("{% static 'images/back5.png' %}");
+			background-color: rgba(0,0,0,0.2);
+			background-size: cover;
+			background-repeat: repeat;
+			height: auto;
+			font: normal 100% Helvetica, Arial, sans-serif;
+			/*min-width: 1336px;
+			overflow: hidden;x;
+			width: 1520.4px;*/
+
+		}
+
+
+
+		/*button是“更多故事”按钮*/
+		.button {
+		    background-color: rgba(50,163,163,0.5); 
+		    border: none;
+		    border-radius: 10px;
+		    color: white;
+		    padding: 15px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		    margin: 4px 2px;
+		    cursor: pointer;
+		    -webkit-transition-duration: 0.5s; /* Safari opacity: 0 */
+		    transition-duration: 0.5s;
+		}
+		.button:hover {
+    		box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    		border-radius: 0;
+		}	
+		.button1{
+			background-color: rgba(100,148,126,0.8);
+			color:#fff;
+			padding:6px ;
+			width:160px;
+			text-align: center;
+			text-decoration: none;
+			display:inline-block;
+			font-size: 13px;
+			font-family: Edwardian Script ITC;
+			margin-top: 0px;
+			margin-left: 30%;
+			cursor:pointer;
+			border-radius:15px;
+			border:none;
+			transition: all 0.5s;
+			cursor: pointer;
+		}
+
+		/*button1是“往日印影”按钮*/
+		.button1 span {
+  			cursor: pointer;
+  			display: inline-block;
+  			position: relative;
+  			transition: 0.5s;
+		}
+		.button1 span:after {
+  			content: '»';
+  			position: absolute;
+  			opacity: 0;
+  			top: 0;
+  			right: -25px;
+  			transition: 0.5s;
+		}
+		.button1:hover span{
+			 padding-right: 25px;
+		}
+		.button1:hover span:after {
+  			opacity: 1;
+  			right: 0;
+  		}
+  		#imginput{
+
+  		}
+        .kuan input{ width:300px;
+            height:40px; background:background:url(../img/kuan_01.jpg) no-repeat; border:none; float:right}
+        .an input{ width:80px; height:40px;  background:background:url(../img/an_02.jpg) no-repeat;border:none;  float:right}
+
+	</style>
+	
+</head>
+<body>
+<script src={% static "tiny_mce/tiny_mce.js"%}></script>
+<script>
+    tinyMCE.init({
+        'mode':'textareas' ,
+        'theme':'advanced',
+        'width':550,
+        'height':300
+    })
+</script>
+
+<form action="http://127.0.0.1:8000/online/search/" method="POST">
+<div class="kuan"><input name="key"  type="text" /></div><!--搜索框-->
+<div class="an"><input value="搜索" type="submit" /></div><!--搜索按钮-->
+</form>
+	
+	<!--用户名，个签，退出等-->
+	<div style="margin-top: 2%;width:100%;height: 20px;background-color: rgba(160,199,201,0.7);border-color: transparent;box-shadow:0 0 20px 3px #a0c7c9 ; ">
+		
+		<div style="width:30%;float: left">
+			<img src="http://127.0.0.1:8000/online/media/{{ touxiang }}" style="float: left; border-radius:50%;width: 7%;margin-top: -0.15%;margin-left: 30%;">
+			<p style="font-family: 幼圆;font-size: 200%;position: relative;bottom:0.5em;font-weight: 600;margin-bottom: 0 ;padding-left:40%;padding-top: 1.5%;">
+				{{ username }}
+			</p>
+			<div style="position:absolute;left: 24%;top: 3.89%;width: 20%;font-size: 1.5rem">
+				<div style="float: left;">
+					<p>个性签名：</p>
+				</div>
+				<div style="float: left;background-color: rgba(255,255,255,0.4);border-radius: 5px;width: auto;">
+					<p style="margin-top: 2%;margin-bottom: 2%">
+					{{ cha }}
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--退出-->
+		<div style="width: auto;float: right;">
+			<a href="http://127.0.0.1:8000/online/logout"><font style="font-family: 华文仿宋;font-size:2rem ">退出</font></a>
+		</div>
+
+
+	</div>
+	
+	<!--日历-->
+	<div style="margin-top: 8%;margin-left: 12%;">
+		<img src="{% static 'images/rili.png' %}" style="max-width: 100%;min-width: 17%">
+	</div>
+	<div style="position: absolute;top: 53%;left: 80%; font-size: 2rem;">
+		<p style="float: left;">
+			签到:{{ times }}
+		</p>
+		<p name="fanhui" style="float: left;">
+
+		</p>
+        <form method="post" action="http://127.0.0.1:8000/online/sigh/"/>
+        {% csrf_token %}
+		<input type="submit"  class="button1" value="签到" style="width: auto;opacity: 0.4">
+        </form>
+	</div>
+	
+	<!--读和写的图-->
+	<div>
+		<a href="#myModal" data-toggle="modal"><img src="{%  static "images/写.png"%} "style="position: absolute;top:20%;left:33%; width:17%;z-index: 2"></a>
+	</div>
+	
+	<!--图片栏，故事栏-->	
+		<div>
+            <a href="http://127.0.0.1:8000/online/showing" style="position: absolute;top: 78%;left: 25%"><button class="button1"><span>我的图片</span> </button></a>
+            <div style="position: absolute;top: 78%;left: 86%" >
+					<a href="http://127.0.0.1:8000/online/show4/"><button class="button1" >
+						<span>其他</span>
+					</button></a>
+
+				</div>
+          <div style="position: absolute;top: 78%;left: 75%" >
+					<a href="http://127.0.0.1:8000/online/show2/"><button class="button1" >
+						<span>学习类</span>
+					</button></a>
+
+				</div>
+
+         <div style="position: absolute;top: 78%;left: 65%" >
+					<a href="http://127.0.0.1:8000/online/show3/"><button class="button1" >
+						<span>人际关系类</span>
+					</button></a>
+
+				</div>
+         <div style="position: absolute;top: 78%;left: 55%" >
+					<a href="http://127.0.0.1:8000/online/show1/"><button class="button1" >
+						<span>音乐类</span>
+					</button></a>
+
+				</div>
+		<!--图片-->
+		<div  style="border-radius: 15px;height: 230px;px;background-color: rgba(160,199,201,0.7);position: absolute;top: 82%;left: 1%;width: 38%;overflow-y:scroll; " >
+			<div style="margin-top: 16px">
+				<center>
+                    {% for a in latest_img_list %}
+                    {{a.pub_date}}
+					<img src= "http://127.0.0.1:8000/online/media/{{ a.img }} " style="width: 30%">
+					{% endfor %}
+				</center>
+			</div>
+		</div>
+		<!--故事栏-->
+		<div  style="border-radius: 15px;height: 230px;background-color: rgba(160,199,201,0.7);position: absolute;top: 82%; left:45%;width:55%;overflow-y:scroll; " >
+			<div style="width: 80%">
+				<ul style="font-family: 华文仿宋;font-size:2.0rem">
+					{% for a in latest_diary_list %}
+                    {{a.pub_date}}
+                   <p>{{a.diary_txt}}&nbsp;&nbsp;&nbsp;&nbsp;   {{a.kind}}</p>
+
+                    {% endfor %}
+				</ul>
+			</div>
+
+			</div>
+
+
+	<!--文本编辑栏-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+		       	 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		       		<h4 class="modal-title" id="myModalLabel">编辑</h4>
+	      		</div>
+		      	<div class="modal-body" >
+		        	<div>
+		        		<!--表单-->
+		        		<form method="POST" action= "http://127.0.0.1:8000/online/write/" enctype="multipart/form-data">
+		        			<!--文本内容-->
+                            标题<input name = "title" style="width: 95%;height: 30px;font-size: 200%>
+
+                            <input type="hidden" name="type" value="">
+
+
+							内容<textarea name="a" style="width: 100%;height: 500px;font-size: 200%">
+
+							</textarea>
+
+							<!--图片上传，用label掩盖opacity: 0-->
+							<label class="btn btn-default" for="imginput" style="display: inline-block;font-size: '楷体';cursor: pointer;width: auto;padding-top: 10px;"> 搭配图片
+							<input type="file" name="img" id="imginput" style="opacity: 0;width: 0.1px;height: 0.1px"></label>
+							<!--提交按钮，定位到“保存”按钮上-->
+							<input type="submit" value="完成" style="position: absolute;top: 102.3%;left: 90%;z-index: 5000;opacity: 0" >
+                            <div>音乐类<input type="radio" name="type" value="音乐类" >&nbsp;&nbsp;&nbsp; 学习类<input type="radio" name="type"  value="学习类" >&nbsp;&nbsp;&nbsp;&nbsp;
+                                人际关系类<input type="radio" name="type"  value="人际关系类" >&nbsp;&nbsp;&nbsp;&nbsp;其他<input name="type"  type="radio"  value="其他类"  checked="true" >
+                            </div>
+                        </form>
+					</div>
+				</div>
+				    
+			    <div class="modal-footer">
+			       <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			       <button type="button" class="btn btn-primary">保存</button>
+			    </div>
+	    	</div>
+	  	</div>   
+	</div>
+
+
+
+	<script src="../bootstrap/bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
+	<script src="{% static 'bootstrap.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'Recorder.js' %}" ></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	
+	<title>我的图片</title>
+	<link type="text/css"  rel="stylesheet" href= "{% static "part-1.css" %}">
+
+</head>
+
+<body>
+<!-- 导航栏及页首-->
+	<div class="header">
+		<h1> 我的图片</h1>
+	</div>
+	<div class="bg" >
+		<div class="container">  
+			<img class="pic1" src={% static "images/2.jpg"%} />
+			<img class="pic2" src={% static "images/3.jpg"%} />
+			<img src={% static "images/4.jpg" %} class="pic3" />
+			<ul class="list">
+				{% for a in latest_img_list %}
+                 {{a.pub_date}}
+                <img src="http://127.0.0.1:8000/online/media/{{ a.img }}"/>
+              <br>
+              <br>
+              <br>
+{% endfor %}
+			</ul>
+    	</div>
+	
+		
+		
+	</div>
+</div>
+</body>
+</html>

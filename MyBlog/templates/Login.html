@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+   {% load staticfiles %}
+<head>
+<meta charset="UTF-8">
+<title>登陆</title>
+<link href={% static "Login.css" %} rel="stylesheet" type="text/css">
+<link href={%  static "style.css" %} rel="stylesheet" type="text/css">
+<script type="text/javascript">
+ //页面淡入淡出
+$(document).ready(function() {
+$('body').hide().fadeIn(5000);
+});
+</script>
+<script type="text/javascript">
+ //页面淡入淡出
+$(document).ready(function(){
+$("body").css("display","none");
+$("body").fadeIn("slow");
+$("a[target],a[href*='javascript'],a.lightbox-processed,a[href*='#']").addClass("speciallinks");
+$("a:not(.speciallinks)").click(function(){
+$("body").fadeOut("slow");
+$("object,embed").css("visibility","hidden");
+});
+});
+</script>
+<script src={% static "js/jquery-1.8.2.js"%}></script>
+</head>
+<body>
+ <div class="error" >用户名或密码输入错误</div>
+	<div class="container">
+		<div class="background">
+			<form method="post" class="infor">
+				<img src={% static "images/username.png"%} alt="" class="img" >
+				<input type="text"  name="username" id="a" value="username" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'username';}">
+				<img src={% static "images/password.png"%} alt="" id="img" class="img">
+				<input type="password" name="password" id= "b" value="11111" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '11111';}">
+				<script>
+            		function myFunction()
+           			{
+            			var x=document.getElementById("a").value;
+						var y=document.getElementById("b").value;
+
+            			if(x==""||y=="")
+	       				{
+	        				alert("Please complete your information");
+	         			}
+            		}
+             	</script>
+
+        		<button type="submit" onclick="myFunction()" class="btn1">登录
+        		</button>
+		 		<a  href="http://127.0.0.1:8000/online/regist/">
+					<button type="button"  class="btn2">
+						注册
+					</button>
+				</a>
+			</form>
+		</div>
+	</div>
+
+</body>

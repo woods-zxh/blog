@@ -1,0 +1,174 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+
+
+	<title>人际关系类</title>
+	<link type="text/css"  rel="stylesheet" href= "{% static "part-1.css" %}">
+    <style type="text/css">
+        .href1{
+              font-size:0.6em ;
+        }
+        .href2{
+              font-size:0.6em ;
+              position: relative;
+              top: -58px;
+              left:20%
+        }
+        .href3{
+              font-size:0.6em ;
+              position: relative;
+              top: -120px;
+              left:20%
+        }
+        .submit{
+             font-size:0.6em ;
+              position: relative;
+              top: -110px;
+              left:34%
+
+        }
+    </style >
+</head>
+
+<body>
+
+<!-- 导航栏及页首-->
+
+<script src={% static "tiny_mce/tiny_mce.js"%}></script>
+<script>
+    tinyMCE.init({
+        'mode':'textareas',
+        'width':550,
+        'height':300
+    })
+</script>
+
+	<div class="header">
+		<h1> 人际关系类</h1>
+	</div>
+	<div class="bg" >
+		<div class="container">
+			<img class="pic1" src={% static "images/2.jpg"%} />
+			<img class="pic2" src={% static "images/3.jpg"%} />
+			<img src={% static "images/4.jpg" %} class="pic3" />
+			<ul class="list">
+				{% for a in latest_diary_list %}
+{{ a.id }}
+                   {{a.pub_date}}
+                    <br>
+                   标题： {{ a.title }}
+
+                    <p>{{a.diary_txt}}</p>
+                    <p>评论:</p>
+                    {% for b in a.comment_set.all %}
+                        <p>{{ b.comment}}</p>
+
+                        {% endfor %}
+
+         <!--文本编辑栏修改-->
+    <div class="modal fade" id= '{{ a.id }}1'  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+		       	 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		       		<h4 class="modal-title" id="myModalLabel">修改</h4>
+	      		</div>
+		      	<div class="modal-body" >
+		        	<div>
+		        		<!--表单-->
+		        		<form method="POST" action= "http://127.0.0.1:8000/online/change/" enctype="multipart/form-data">
+
+                            <textarea name="a" style="width: 100%;height: 500px;font-size: 200%">
+                          {{ a.diary_txt }}
+                             </textarea >
+                            <input type="hidden" name="id" value={{ a.id }}>
+
+                            <input type="hidden" name="type" value="3">
+
+							<input type="submit" value="完成" style="position: absolute;top: 102.3%;left: 90%;z-index: 5000;opacity: 0" >
+
+                        </form>
+					</div>
+				</div>
+
+			    <div class="modal-footer">
+			       <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			       <button type="button" class="btn btn-primary">保存</button>
+			    </div>
+	    	</div>
+	  	</div>
+	</div>
+
+      <div class="modal fade" id= '{{ a.id }}'  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+	  	<div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+		       	 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		       		<h4 class="modal-title" id="myModalLabel">评论</h4>
+	      		</div>
+		      	<div class="modal-body" >
+		        	<div>
+		        		<!--表单-->
+		        		<form method="POST" action= "http://127.0.0.1:8000/online/comment/" enctype="multipart/form-data">
+		        			<!--文本内容-->
+							<textarea name="a" style="width: 100%;height: 500px;font-size: 200%">
+
+                             </textarea >
+
+
+                            <input type="hidden" name="id" value={{ a.id }}>
+
+                            <input type="hidden" name="type" value="3">
+
+							<input type="submit" value="完成" style="position: absolute;top: 102.3%;left: 90%;z-index: 5000;opacity: 0" >
+
+                        </form>
+					</div>
+				</div>
+
+			    <div class="modal-footer">
+			       <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			       <button type="button" class="btn btn-primary">保存</button>
+			    </div>
+	    	</div>
+	  	</div>
+	</div>
+
+       <div >
+		            <a class = "href1" href='#{{ a.id }}1' data-toggle="modal">修改</a>
+                    </div>
+                    <div >
+		            <a class = "href2" href='#{{ a.id }}' data-toggle="modal">评论</a>
+                    </div>
+                     <form method="POST" action= "http://127.0.0.1:8000/online/delete/" >
+		        			<!--文本内容-->
+                         <input type="hidden" name="id" value={{ a.id }}>
+                         <input class = "submit" type="submit" value="删除" >
+                         <input type="hidden" name="type" value="3">
+                        </form>
+                    <a class = "href3" href='http://127.0.0.1:8000/online/detail/{{ a.slug }}/' data-toggle="modal">详情</a>
+                    {% endfor %}
+			</ul>
+    	</div>
+    </div>
+
+<!--文本编辑栏-->
+
+
+
+
+
+
+
+	<script src="../bootstrap/bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
+	<script src="{% static 'bootstrap.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'Recorder.js' %}" ></script>
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

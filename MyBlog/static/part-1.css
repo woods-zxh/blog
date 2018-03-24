@@ -1,0 +1,148 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* 消除边距 */
+h1{
+
+	position: absolute;
+	left:50%;
+	top:-0.5em;
+}
+
+body {
+	height:100%; 
+	width:100%; 
+	background-image:url(images/back3.png);
+	background-position: center 0; 
+	background-attachment:fixed; 
+	background-size: cover; 
+	-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+	-o-background-size: cover;/* 兼容Opera */ 
+	zoom: 1; 
+	min-width: 1280px;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration:none;
+	color: coral;
+}
+
+a :hover {
+	color: brown;
+	transition: 0.5s;
+}
+
+p {
+	letter-spacing: 1px;
+	position: relative;
+	top:10%;
+	margin-left: 10%;
+	font-size: 25px;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	color:black;
+}
+
+/* 导航栏部分 */
+.header {
+	margin: 0px;
+	padding: 0px;
+	height: 58px;
+	border-radius: 20px;
+	border: solid brown;
+	background-color: rgba(160,199,201,.7);
+}
+
+.header img {
+	border-radius: 20px;
+}
+
+.header ul {
+	float: right;
+}
+
+.header li {
+	margin: 0 40px 0 10px;
+	color: coral;
+	font-size: 24px;
+	float: left;
+}
+
+.header li:hover {
+	color: brown;
+	transition: 0.5s;
+}
+
+/* 居中容器 */
+.container {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.left {
+	margin: 90px 80px 0 180px;
+	
+}
+
+.right{
+    width: 70%; 
+    height: 100%;
+    overflow: hidden; 
+    margin: 100px auto; 
+    position: relative;
+}
+
+.container img{ 
+	  margin-top: 5%;
+    z-index: 1;
+    width: 16%;
+    height: auto;
+    position: relative;
+    padding: 10px 10px 15px 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    /* 动画的时间 */
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    float: left;
+ }
+
+.container img:hover{
+    z-index: 2;
+    transform: scale(1.5);
+    -moz-transform: scale(1.5) ;
+    -webkit-transform: scale(1.5) ;
+    box-shadow: -10px 10px 20px #000000;
+    -moz-box-shadow: -10px 10px 20px #000000;
+    -webkit-box-shadow: -10px 10px 20px #000000;
+}
+.pic1{
+    left: 40px;
+    top: 0px;
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.pic2{
+    left: 100px;
+    top: 10px;
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+	
+.pic3{
+    right: 150px;
+    top: 0px;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+		transform: rotate(-40deg);
+}
+
+.list{
+	float: left;
+	font-size: 40px;
+}
